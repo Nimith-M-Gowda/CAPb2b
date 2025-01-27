@@ -1,0 +1,5 @@
+parent_ID,pos,quantity,bookId_foreignKey
+76aa6814-a6b9-4f9f-8b00-346946a57cd7,1,10,1
+2c22af78-af67-4a78-831e-61b569c5916d,1,10,3
+76aa6814-a6b9-4f9f-8b00-346946a57cd7,2,20,2
+c17cca83-19c3-4bd2-8c27-f1c95479ea02,1,20,4

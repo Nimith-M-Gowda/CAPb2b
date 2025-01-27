@@ -1,0 +1,158 @@
+@serviceName = bookshop
+###
+# @name QueryBooks
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books
+
+###
+# @name CreateNewBook
+POST http://localhost:4004/odata/v4/{{serviceName}}/Books
+Content-Type: application/json
+
+{"title": "1ABBANANAS Long And Thanks For All The Fish","authorId_foreignKey":"6783beab-b835-4b69-963f-b9353ee3abfe"}
+
+###
+# @name QueryBooksAgain
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books
+
+@book_ID = {{ QueryBooksAgain.response.body.value[2].ID }}
+
+###
+# @name ReadSpecificBookEntity
+GET http://localhost:4004/odata/v4/{{serviceName}}/Books({{book_ID}})
+
+###
+# @name DeleteSpecificBookEntity
+# DELETE http://localhost:4004/odata/v4/bookshop/Books({{book_ID}})
+DELETE http://localhost:4004/odata/v4/bookshop/Books(c42364a8-dea2-49ce-bf22-38c29ab679ba)
+
+###
+# @name QueryAuthors
+GET http://localhost:4004/odata/v4/{{serviceName}}/Authors
+
+###
+# @name QueryCountries
+GET http://localhost:4004/odata/v4/{{serviceName}}/Countries
+
+###
+# @name CreateNewOrder
+DELETE http://localhost:4004/odata/v4/order-Books/Orders/3449823f-9a12-473b-875b-0e2c21cdee17
+
+###
+# @name CreateNewOrder
+POST http://localhost:4004/odata/v4/order-Books/Orders
+Content-Type: application/json
+
+{
+  "comment": "New Order",
+  "Items": [
+    {
+      "pos": 1,
+      "quantity": 10,
+      "bookId_foreignKey": 2
+    },
+    {
+      "pos": 2,
+      "quantity": 20,
+      "bookId_foreignKey": 1
+    },
+    {
+      "pos": 3,
+      "quantity": 10,
+      "bookId_foreignKey": 2
+    }
+  ]
+}
+
+
+###
+# @name CreateNewOrder
+PATCH http://localhost:4004/odata/v4/order-Books/Orders/39022823-77f2-4d61-8d20-7973ead1f687
+Content-Type: application/json
+
+{
+  "comment": "New Order",
+  "Items": [
+    {
+      "pos": 1,
+      "quantity": 1000
+    },
+    {
+      "pos": 2,
+      "quantity": 2000
+    },
+    {
+      "pos": 3,
+      "quantity": 1000
+    },
+    {
+      "pos": 4,
+      "quantity": 2000
+    }
+  ]
+}
+
+###
+# @name setPrice
+POST http://localhost:4004/odata/v4/bookshop/Books/1/setPrice
+Content-Type: application/json
+
+{"price": 15000}
+
+
+
+
+
+
+
+# QUIZ
+
+###
+# @name CreateNewTest
+POST http://localhost:4004/odata/v4/quiz/Tests
+Content-Type: application/json
+
+{"title": "TEST 2","description":"TEST 2 desc"}
+
+
+###
+# @name CreateNewQuestion
+POST http://localhost:4004/odata/v4/quiz/Questions
+Content-Type: application/json
+
+{"text": "Am  a question 2 of Test 1"}
+
+###
+# @name CreateNewQuestion
+POST http://localhost:4004/odata/v4/quiz/Questions
+Content-Type: application/json
+
+{"text": "Am  a question 1 of Test 1","test_ID":"8e88041a-1932-4272-bb15-5f7a1eb32a50"}
+
+###
+# @name DeleteQuestion
+DELETE http://localhost:4004/odata/v4/quiz/Questions/ddcceb1b-1b3d-4294-bc6a-0d2121a1ca7f
+
+###
+# @name DeleteTest
+DELETE http://localhost:4004/odata/v4/quiz/Tests/dace1691-cc57-4c8e-9987-623d2ad6540c
+
+###
+# @name CreateNewAnswer
+PATCH http://localhost:4004/odata/v4/quiz/Questions/ddcceb1b-1b3d-4294-bc6a-0d2121a1ca7f/answers
+Content-Type: application/json
+
+{
+     "text": "Answer for Question 1 of Test 2"
+}
+
+###
+# @name DeleteAnswer
+DELETE http://localhost:4004/odata/v4/quiz/Questions/d38a6903-56a2-4c4b-b11c-a516251c627a/answers
+
+
+###
+# @name setquestionsCount
+POST http://localhost:4004/odata/v4/quiz/Tests/f7090a0b-807f-49a5-9679-2c2cdf8a84cd/setquestionsCount
+Content-Type: application/json
+
+{"questionsCount": 1}

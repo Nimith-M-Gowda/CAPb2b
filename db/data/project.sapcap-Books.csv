@@ -1,0 +1,5 @@
+ID,title,authorId_foreignKey,stockCount,price
+1,Apple,076de393-4372-4474-8736-18e3ae35b547,10,200
+2,Banana,076de393-4372-4474-8736-18e3ae35b547,20,300
+3,Carrot,6783beab-b835-4b69-963f-b9353ee3abfe,30,100
+4,Brinjal,7110fbea-b943-40db-a431-2d05f7da3780,40,800

@@ -2,6 +2,12 @@
 
 Welcome to your new project.
 
+(NOTE : add below extention in your VS Code
+
+Name: Dev Containers
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+
 It contains these folders and files, following our recommended project layout:
 
 File or Folder | Purpose
